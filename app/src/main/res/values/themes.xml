@@ -19,7 +19,22 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="OutlinedRoundedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="shapeAppearanceOverlay">@style/DesafioBoticario.TextInputLayout.Rounded</item>
+    </style>
+
+    <style name="DesafioBoticario.TextInputLayout.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/dark_purple</item>
+    </style>
+
     <style name="Theme.Desafio_boticario.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Desafio_boticario.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <color name="dark_purple">#6f45b5</color>
 </resources>
