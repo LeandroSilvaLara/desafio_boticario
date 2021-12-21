@@ -15,4 +15,6 @@
     <string name="password">Senha</string>
     <string name="confirm_password">Confirme a senha</string>
     <string name="btn_register">Cadastrar</string>
+    <string name="name_lara">Leandro Lara</string>
+    <string name="lara_email">leandro@gmail.com</string>
 </resources>
