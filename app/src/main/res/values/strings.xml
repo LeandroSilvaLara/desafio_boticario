@@ -24,4 +24,9 @@
     <string name="confirm">Confirmar</string>
     <string name="no_news">Não há novidades</string>
     <string name="no_internet">Verifique a sua conexão com a Internet e tente novamente.</string>
+    <string name="email_hint">E-mail</string>
+    <string name="password_hint">Senha</string>
+    <string name="login_btn">Login</string>
+    <string name="not_account">Ainda não tem uma conta?</string>
+    <string name="click_to_register">Clique para se registrar</string>
 </resources>
