@@ -17,6 +17,7 @@
             android:name=".viewmodels.main.MainActivity"
             android:theme="@style/Theme.Desafio_boticario.NoActionBar"
             android:screenOrientation="portrait"/>
+
         <meta-data
             android:name="DATABASE"
             android:value="desafio_boticario.db" />

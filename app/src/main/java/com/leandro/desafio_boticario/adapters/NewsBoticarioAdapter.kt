@@ -42,7 +42,7 @@ class NewsBoticarioAdapter (private val newsBoticario: ArrayList<NewsBoticario>,
             Glide
                 .with(context)
                 .load(new.user?.profile_picture)
-                .placeholder(R.drawable.logo_oboticario)
+                .placeholder(R.drawable.leandro)
                 .into(image)
 
             message.text = new.message?.content
