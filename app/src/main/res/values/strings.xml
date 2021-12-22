@@ -29,4 +29,5 @@
     <string name="login_btn">Login</string>
     <string name="not_account">Ainda não tem uma conta?</string>
     <string name="click_to_register">Clique para se registrar</string>
+    <string name="successfully_registered">Usuário cadastrado com sucesso</string>
 </resources>
