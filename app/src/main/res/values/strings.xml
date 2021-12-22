@@ -35,4 +35,12 @@
     <string name="menu_posts">Postagens</string>
     <string name="menu_news_boticario">Novidade do Boticário</string>
     <string name="menu_exit">Sair</string>
+    <string name="name_hint">Nome</string>
+    <string name="register_btn">Cadastrar</string>
+    <string name="confirm_password_hint">Confirme a senha</string>
+    <string name="delete_post_title">Deletar Postagem</string>
+    <string name="delete_post_description">Deseja deletar essa postagem?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="edit_post">Editar Posttagem</string>
 </resources>

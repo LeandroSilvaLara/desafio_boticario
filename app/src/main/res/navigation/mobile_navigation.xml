@@ -3,23 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_posts">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.leandro.desafio_boticario.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_posts"
+        android:name="com.leandro.desafio_boticario.fragments.PostsFragment"
+        android:label="@string/menu_posts"
+        tools:layout="@layout/fragment_posts" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.leandro.desafio_boticario.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.leandro.desafio_boticario.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_news_boticario"
+        android:name="com.leandro.desafio_boticario.fragments.NewsBoticarioFragment"
+        android:label="@string/menu_news_boticario"
+        tools:layout="@layout/fragment_news_boticario" />
 </navigation>

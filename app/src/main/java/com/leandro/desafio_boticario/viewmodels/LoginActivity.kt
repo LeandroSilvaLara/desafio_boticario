@@ -34,24 +34,14 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         setComponents()
 
-        val successfullyRegistered =
-            intent.getBooleanExtra(Constants.SUCCESSFULLY_REGISTERED, false)
+        val successfullyRegistered = intent.getBooleanExtra(Constants.SUCCESSFULLY_REGISTERED, false)
 
-        if (successfullyRegistered) {
-            Snackbar.make(
-                layoutLogin,
-                getString(R.string.successfully_registered),
-                Snackbar.LENGTH_LONG
-            ).show()
-
+        if(successfullyRegistered){
+            Snackbar.make(layoutLogin, getString(R.string.successfully_registered), Snackbar.LENGTH_LONG).show()
         }
     }
 
-    /**
-     * Adicinando layout
-     */
-
-    private fun setComponents() {
+    private fun setComponents(){
         layoutLogin = findViewById(R.id.layout_login)
         editEmail = findViewById(R.id.edit_email)
         editPassword = findViewById(R.id.edit_password)
@@ -61,6 +51,10 @@ class LoginActivity : AppCompatActivity() {
         inputLoginPassword = findViewById(R.id.input_login_password)
 
         btnLogin.setOnClickListener {
+            login()
+        }
+
+        layoutRegister.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
@@ -72,20 +66,15 @@ class LoginActivity : AppCompatActivity() {
 
         if (validEmail && validPassword) {
             val user = Select.from(UserEntity::class.java)
-                .where(
-                    Condition.prop("email").eq(editEmail.text.toString()),
-                    Condition.prop("password")
-                        .eq(AESEncyption.encrypt(editPassword.text.toString()))
-                )
+                .where(Condition.prop("email").eq(editEmail.text.toString()),
+                    Condition.prop("password").eq(AESEncyption.encrypt(editPassword.text.toString())))
                 .first()
 
-            if (user == null) {
-                Snackbar.make(layoutRegister, getString(R.string.login_error), Snackbar.LENGTH_LONG)
-                    .show()
+            if(user == null){
+                Snackbar.make(layoutRegister, getString(R.string.login_error), Snackbar.LENGTH_LONG).show()
             } else {
 
-                val sharedPreferences =
-                    androidx.preference.PreferenceManager.getDefaultSharedPreferences(this)
+                val sharedPreferences = androidx.preference.PreferenceManager.getDefaultSharedPreferences(this)
                 val editor = sharedPreferences.edit()
                 editor.putLong(Constants.USER_LOGGED_ID, user.id).apply()
 
@@ -122,4 +111,3 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 }
-

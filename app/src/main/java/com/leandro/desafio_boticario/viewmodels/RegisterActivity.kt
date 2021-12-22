@@ -41,6 +41,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun setComponents() {
+
         layoutRegister = findViewById(R.id.layout_register)
 
         inputRegisterName = findViewById(R.id.input_register_name)
@@ -139,6 +140,4 @@ class RegisterActivity : AppCompatActivity() {
         }
         return true
     }
-
-
 }

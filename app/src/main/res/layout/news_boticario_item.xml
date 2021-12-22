@@ -26,7 +26,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/Leandro"/>
+                android:src="@drawable/leandro"/>
 
             <LinearLayout
                 android:id="@+id/linear"
