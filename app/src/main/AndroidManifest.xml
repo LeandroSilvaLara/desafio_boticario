@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Desafio_boticario">
         <activity
-            android:name=".MainActivity"
+            android:name=".viewmodels.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Desafio_boticario.NoActionBar">

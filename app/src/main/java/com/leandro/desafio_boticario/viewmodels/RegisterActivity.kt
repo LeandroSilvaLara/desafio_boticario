@@ -1,14 +1,22 @@
 package com.leandro.desafio_boticario.viewmodels
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Patterns
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.leandro.desafio_boticario.R
+import com.leandro.desafio_boticario.data.AESEncyption
+import com.leandro.desafio_boticario.models.entity.UserEntity
+import com.leandro.desafio_boticario.service.Constants
+import com.orm.query.Condition
+import com.orm.query.Select
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -53,7 +61,83 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun register() {
-        TODO("Not yet implemented")
+        val validName = validateName()
+        val validEmail = validateEmail()
+        val validPassword = validatePassword()
+        val validConfirmPassword = validateConfirmPassword()
+
+        if (validName && validEmail && validPassword && validConfirmPassword) {
+
+            val registeredUser = Select.from(UserEntity::class.java)
+                .where(Condition.prop("email").eq(editRegisterEmail.text.toString()))
+                .first()
+
+            if(registeredUser == null){
+                val user = UserEntity(
+                    editRegisterName.text.toString(),
+                    editRegisterEmail.text.toString(),
+                    AESEncyption.encrypt(editRegisterPassword.text.toString())
+                )
+                user.save()
+                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                intent.putExtra(Constants.SUCCESSFULLY_REGISTERED, true)
+                startActivity(intent)
+                finish()
+            } else {
+                Snackbar.make(layoutRegister, getString(R.string.email_registered), Snackbar.LENGTH_LONG).show()
+            }
+
+        }
+
+    }
+
+    private fun validateName(): Boolean {
+        val name = editRegisterName.text.toString().trim()
+        if (name.isEmpty()) {
+            inputRegisterName.error = "Digite o nome"
+            return false
+        }
+        return true
+    }
+
+    private fun validateEmail(): Boolean {
+        val email = editRegisterEmail.text.toString()
+        if (email.isEmpty()) {
+            inputRegisterEmail.error = "Digite um email"
+            return false
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            inputRegisterEmail.error = "Digite um email válido"
+            return false
+        }
+        return true
+    }
+
+    private fun validatePassword(): Boolean {
+        val password = editRegisterPassword.text.toString().trim()
+        if (password.isEmpty()) {
+            inputRegisterPassword.error = "Digite uma senha"
+            return false
+        }
+        if (password.length < 6) {
+            inputRegisterPassword.error = "A senha deve conter ao mesno 6 dígitos"
+            return false
+        }
+        return true
+    }
+
+    private fun validateConfirmPassword(): Boolean {
+        val password = editRegisterPassword.text.toString().trim()
+        val confirmPassword = editRegisterConfirmPassword.text.toString().trim()
+        if (confirmPassword.isEmpty()) {
+            inputRegisterConfirmPassword.error = "Digite a confirmação da senha"
+            return false
+        }
+        if (confirmPassword != password) {
+            inputRegisterConfirmPassword.error = "As senhas não são iguais"
+            return false
+        }
+        return true
     }
 
 

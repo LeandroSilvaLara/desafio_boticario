@@ -31,4 +31,8 @@
     <string name="click_to_register">Clique para se registrar</string>
     <string name="successfully_registered">Usuário cadastrado com sucesso</string>
     <string name="login_error">Erro de login, verifique se o email e a senha estão cor...</string>
+    <string name="email_registered">Este email já esta cadastrado</string>
+    <string name="menu_posts">Postagens</string>
+    <string name="menu_news_boticario">Novidade do Boticário</string>
+    <string name="menu_exit">Sair</string>
 </resources>

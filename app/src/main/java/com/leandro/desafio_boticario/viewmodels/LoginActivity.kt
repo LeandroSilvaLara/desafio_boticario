@@ -2,7 +2,6 @@ package com.leandro.desafio_boticario.viewmodels
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Patterns
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +10,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.leandro.desafio_boticario.MainActivity
+import com.leandro.desafio_boticario.viewmodels.main.MainActivity
 import com.leandro.desafio_boticario.R
 import com.leandro.desafio_boticario.data.AESEncyption
 import com.leandro.desafio_boticario.models.entity.UserEntity
