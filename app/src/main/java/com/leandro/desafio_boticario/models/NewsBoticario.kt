@@ -4,13 +4,13 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-data class NewsBoticario NewsBoticario(
-@SerializedName("user") val user: NewsBoticarioUser?,
-@SerializedName("message") val message: NewsBoticarioMessage?
+data class NewsBoticario(
+    @SerializedName("user") val user: NewsBoticarioUser?,
+    @SerializedName("message") val message: NewsBoticarioMessage?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-    parcel.readParcelable(NewsBoticarioUser::class.java.classLoader),
-    parcel.readParcelable(NewsBoticarioMessage::class.java.classLoader)
+        parcel.readParcelable(NewsBoticarioUser::class.java.classLoader),
+        parcel.readParcelable(NewsBoticarioMessage::class.java.classLoader)
     ) {
     }
 
@@ -32,3 +32,4 @@ data class NewsBoticario NewsBoticario(
             return arrayOfNulls(size)
         }
     }
+}
