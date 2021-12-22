@@ -8,6 +8,8 @@
         <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/drawable/cursor_color_purple.xml" value="0.21614583333333334" />
         <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/drawable/cursor_color_white.xml" value="0.21614583333333334" />
         <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/drawable/gradient_background.xml" value="0.21614583333333334" />
+        <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/drawable/ic_delete.xml" value="0.21614583333333334" />
+        <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/drawable/ic_edit.xml" value="0.21614583333333334" />
         <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/drawable/ic_menu_exit.xml" value="0.21614583333333334" />
         <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/drawable/ic_menu_news_boticario.xml" value="0.21614583333333334" />
         <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/drawable/ic_menu_posts.xml" value="0.21614583333333334" />
@@ -25,7 +27,9 @@
         <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/layout/fragment_posts.xml" value="0.2" />
         <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/layout/fragment_slideshow.xml" value="0.2" />
         <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/layout/nav_header_main.xml" value="0.18" />
-        <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/layout/news_boticario_item.xml" value="0.2" />
+        <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/layout/news_boticario_item.xml" value="0.22" />
+        <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/layout/posts_item.xml" value="0.2" />
+        <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/layout/progressbar_item_table_row.xml" value="0.2" />
         <entry key="..\:/Kotlin/desafio_boticario/app/src/main/res/menu/activity_main_drawer.xml" value="0.2" />
       </map>
     </option>

@@ -11,6 +11,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.leandro.desafio_boticario.R
+import com.leandro.desafio_boticario.adapters.NewsBoticarioAdapter
+import com.leandro.desafio_boticario.data.ConnectionDetector
+import com.leandro.desafio_boticario.data.api.ApiClient
+import com.leandro.desafio_boticario.data.api.ApiInterface
+import com.leandro.desafio_boticario.models.NewsBoticario
 import com.leandro.desafio_boticario.models.NewsBoticarioResponse
 import retrofit2.Call
 import retrofit2.Callback
