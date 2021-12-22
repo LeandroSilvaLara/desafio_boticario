@@ -3,6 +3,7 @@ package com.leandro.desafio_boticario.viewmodels
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Patterns
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -10,8 +11,13 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.leandro.desafio_boticario.MainActivity
 import com.leandro.desafio_boticario.R
+import com.leandro.desafio_boticario.data.AESEncyption
+import com.leandro.desafio_boticario.models.entity.UserEntity
 import com.leandro.desafio_boticario.service.Constants
+import com.orm.query.Condition
+import com.orm.query.Select
 
 class LoginActivity : AppCompatActivity() {
 
@@ -57,11 +63,64 @@ class LoginActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 
+    private fun login() {
+        val validEmail = validateEmail()
+        val validPassword = validatePassword()
+
+        if (validEmail && validPassword) {
+            val user = Select.from(UserEntity::class.java)
+                .where(
+                    Condition.prop("email").eq(editEmail.text.toString()),
+                    Condition.prop("password")
+                        .eq(AESEncyption.encrypt(editPassword.text.toString()))
+                )
+                .first()
+
+            if (user == null) {
+                Snackbar.make(layoutRegister, getString(R.string.login_error), Snackbar.LENGTH_LONG)
+                    .show()
+            } else {
+
+                val sharedPreferences =
+                    androidx.preference.PreferenceManager.getDefaultSharedPreferences(this)
+                val editor = sharedPreferences.edit()
+                editor.putLong(Constants.USER_LOGGED_ID, user.id).apply()
+
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
+    }
+
+    private fun validateEmail(): Boolean {
+        val email = editEmail.text.toString()
+        if (email.isEmpty()) {
+            inputLoginEmail.error = "Digite um email"
+            return false
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            inputLoginEmail.error = "Digite um email válido"
+            return false
+        }
+        return true
+    }
+
+    private fun validatePassword(): Boolean {
+        val password = editPassword.text.toString().trim()
+        if (password.isEmpty()) {
+            inputLoginPassword.error = "Digite uma senha"
+            return false
+        }
+        if (password.length < 6) {
+            inputLoginPassword.error = "A senha deve conter ao mesno 6 dígitos"
+            return false
+        }
+        return true
+    }
 }
 
-    private fun setComponents() {
-        TODO("Not yet implemented")
-    }
