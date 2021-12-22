@@ -17,4 +17,11 @@
     <string name="btn_register">Cadastrar</string>
     <string name="name_lara">Leandro Lara</string>
     <string name="lara_email">leandro@gmail.com</string>
+    <string name="new_post">Nova Postagem</string>
+    <string name="new_post_hint">\"Digite aqui a nova Postagem...\"</string>
+    <string name="limit_characters">Limite de 280 caracteres.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="no_news">Não há novidades</string>
+    <string name="no_internet">Verifique a sua conexão com a Internet e tente novamente.</string>
 </resources>
